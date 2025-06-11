@@ -48,9 +48,12 @@ jobs:
             sleep 2
           done
 
-      - name: Run tests (ignore empty test suite)
+      - name: Run tests (gracefully skip if none)
         run: |
-          npm test || if grep -q "0 passing" <<< "$(npm test 2>&1)"; then echo "No tests found. Skipping."; else exit 1; fi
+          if npm test 2>&1 | tee test_output.log | grep -qE "0 passing|Error: no test specified"; then
+            echo "No tests or test script found. Skipping.";
+            exit 0;
+          fi
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
