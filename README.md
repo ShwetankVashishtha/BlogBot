@@ -23,3 +23,27 @@
    ```bash
    git clone https://github.com/yourusername/BlogBot.git
    cd BlogBot
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Create a `.env` file:**
+   ```env
+   OPENAI_API_KEY=your_openai_api_key
+   ```
+
+4. **Run the server:**
+   ```bash
+   node server.js
+   ```
+
+5. **Open in your browser:**
+   ```
+   http://localhost:3000
+   ```
+
+
+Made with ❤️ by [Shwetank Vashishtha](https://github.com/ShwetankVashishtha)
